@@ -10,40 +10,34 @@ The implementation includes dataset preprocessing, data augmentation, training w
 
 ## Proposed Methodology
 
-### 1. Dataset Preparation
-- The dataset is stored in a structured format:
-  - `all-images/`: Contains raw X-ray images.
-  - `unet-masks/`: Contains corresponding segmentation masks.
-- Image paths are retrieved and stored for easy access.
-
-### 2. Custom Dataset Class
+### 1. Custom Dataset Class
 A `CustomSegmentationDataset` class is implemented using PyTorch’s `Dataset` class to:
 - Load images and masks.
 - Apply transformations such as resizing and normalization using Albumentations.
 - Convert images and masks to PyTorch tensors.
 - Ensure pixel values are correctly scaled.
 
-### 3. Data Augmentation & Normalization
+### 2. Data Augmentation & Normalization
 - Albumentations library is used for data augmentation.
 - Images are resized to `(256x256)`, normalized with ImageNet mean and standard deviation.
 - Masks are converted into binary format (0 or 1) for segmentation.
 
-### 4. DataLoader Preparation
+### 3. DataLoader Preparation
 - The dataset is split into training (90%), validation (5%), and testing (5%).
 - DataLoaders are created for efficient batch processing during training and evaluation.
 
-### 5. Model Selection
+### 4. Model Selection
 - DeepLabV3+ architecture is chosen for segmentation.
 - The model is initialized with two output classes (background and foreground).
 
-### 6. Training Pipeline
+### 5. Training Pipeline
 The training process follows these steps:
 - The model is trained using `CrossEntropyLoss` as the loss function.
 - Adam optimizer is used with a learning rate of `3e-4`.
 - Training runs for `10 epochs` with early stopping based on validation loss.
 - Performance metrics (mIoU, PA) are computed during training.
 
-### 7. Evaluation Metrics
+### 6. Evaluation Metrics
 - **Pixel Accuracy (PA)**: Measures how many pixels are correctly classified.
 - **Mean IoU (mIoU)**: Computes the average Intersection over Union across classes.
 - **Loss Curve**: Tracks training and validation loss to monitor learning progress.
