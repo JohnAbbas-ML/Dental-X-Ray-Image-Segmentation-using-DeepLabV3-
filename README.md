@@ -98,7 +98,3 @@ This project successfully implements dental X-ray segmentation using DeepLabV3+.
 - Segmentation Models PyTorch for pre-built architectures
 
 ---
-
-## License
-This project is licensed under the MIT License.
-
