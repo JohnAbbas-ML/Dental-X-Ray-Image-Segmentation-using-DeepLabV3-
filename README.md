@@ -91,38 +91,6 @@ pip install torch torchvision torchaudio
 pip install albumentations opencv-python numpy matplotlib tqdm segmentation-models-pytorch
 ```
 
-### Running the Training Script
-```python
-python train.py
-```
-
-### Testing the Model
-```python
-python test.py
-```
-
-### Visualizing Results
-```python
-python visualize.py
-```
-
----
-
-## Repository Structure
-```
-├── dataset/
-│   ├── all-images/        # Raw X-ray images
-│   ├── unet-masks/        # Ground truth segmentation masks
-│
-├── saved_models/
-│   ├── dental_best_model.pt  # Best trained model
-│
-├── train.py               # Training script
-├── test.py                # Testing and evaluation script
-├── visualize.py           # Visualization of predictions
-├── README.md              # Project documentation
-```
-
 ---
 
 ## Conclusion
